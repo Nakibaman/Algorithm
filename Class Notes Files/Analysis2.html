@@ -1,0 +1,119 @@
+<!doctype html> 
+<head>
+<meta charset="utf-8">
+<title>Data Structures Asymptotic Analysis</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<base href="https://www.tutorialspoint.com" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\(","\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }          
+}              
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+<link  rel="stylesheet" href="/scripts/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="/scripts/print.css" />
+<link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
+<script type="text/javascript" src="/scripts/prettify.js"></script>
+</head>
+<body onload="prettyPrint()">
+<div id="print-wrapper">
+   <div id="print-area-wrapper">
+      <div class="clearfix" id="actual-print-area">
+<div class="row">
+             <h1 class="title">Data Structures - Asymptotic Analysis</h1>
+             <a href="https://www.tutorialspoint.com/data_structures_algorithms/asymptotic_analysis.htm" id="print-source">https://www.tutorialspoint.com/data_structures_algorithms/asymptotic_analysis.htm</a><div id="page-print-copy">Copyright &copy; tutorialspoint.com</div>
+             <div style="clear:both"></div>
+             <br>
+	     <div id="page-content">
+<p>Asymptotic analysis of an algorithm refers to defining the mathematical boundation/framing of its run-time performance. Using asymptotic analysis, we can very well conclude the best case, average case, and worst case scenario of an algorithm.</p>
+<p>Asymptotic analysis is input bound i.e., if there's no input to the algorithm, it is concluded to work in a constant time. Other than the "input" all other factors are considered constant.</p>
+<p>Asymptotic analysis refers to computing the running time of any operation in mathematical units of computation. For example, the running time of one operation is computed as <i>f</i>(n) and may be for another operation it is computed as <i>g</i>(n<sup>2</sup>). This means the first operation running time will increase linearly with the increase in <b>n</b> and the running time of the second operation will increase exponentially when <b>n</b> increases. Similarly, the running time of both operations will be nearly the same if <b>n</b> is significantly small.</p>
+<p>Usually, the time required by an algorithm falls under three types &minus;</p>
+<ul class="list">
+<li><p><b>Best Case</b> &minus; Minimum time required for program execution.</p></li>
+<li><p><b>Average Case</b> &minus; Average time required for program execution.</p></li>
+<li><p><b>Worst Case</b> &minus; Maximum time required for program execution.</p></li>
+</ul>
+<h2>Asymptotic Notations</h2>
+<p>Following are the commonly used asymptotic notations to calculate the running time complexity of an algorithm.</p>
+<ul class="list">
+<li>&Omicron; Notation</li>
+<li>&Omega; Notation</li>
+<li>&theta; Notation</li>
+</ul>
+<h3>Big Oh Notation, &Omicron;</h3>
+<p>The notation &Omicron;(n) is the formal way to express the upper bound of an algorithm's running time. It measures the worst case time complexity or the longest amount of time an algorithm can possibly take to complete.</p>
+<img src="/data_structures_algorithms/images/big_o_notation.jpg" alt="Big O Notation" />
+<p>For example, for a function <b><i>f</i>(n)</b></p>
+<pre class="result notranslate">
+&Omicron;(<i>f</i>(n)) = { <i>g</i>(n) : there exists c &gt; 0 and n<sub>0</sub> such that <i>f</i>(n) &le; c.<i>g</i>(n) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h3>Omega Notation, &Omega;</h3>
+<p>The notation &Omega;(n) is the formal way to express the lower bound of an algorithm's running time. It measures the best case time complexity or the best amount of time an algorithm can possibly take to complete.</p>
+<img src="/data_structures_algorithms/images/omega_notation.jpg" alt="Omega Notation" />
+<p>For example, for a function <b><i>f</i>(n)</b></p>
+<pre class="result notranslate">
+&Omega;(<i>f</i>(n)) &ge; { <i>g</i>(n) : there exists c &gt; 0 and n<sub>0</sub> such that <i>g</i>(n) &le; c.<i>f</i>(n) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h3>Theta Notation, &theta;</h3>
+<p>The notation &theta;(n) is the formal way to express both the lower bound and the upper bound of an algorithm's running time. It is represented as follows &minus;</p>
+<img src="/data_structures_algorithms/images/theta_notation.jpg" alt="Theta Notation" />
+<pre class="result notranslate">
+&theta;(<i>f</i>(n)) = { <i>g</i>(n) if and only if <i>g</i>(n) =  &Omicron;(<i>f</i>(n)) and <i>g</i>(n) = &Omega;(<i>f</i>(n)) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h2>Common Asymptotic Notations</h2>
+<p>Following is a list of some common asymptotic notations &minus;</p>
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td>constant</td>
+<td>&minus;</td>
+<td>&Omicron;(1)</td>
+</tr>
+<tr>
+<td>logarithmic</td>
+<td>&minus;</td>
+<td>&Omicron;(log n)</td>
+</tr>
+<tr>
+<td>linear</td>
+<td>&minus;</td>
+<td>&Omicron;(n)</td>
+</tr>
+<tr>
+<td>n log n</td>
+<td>&minus;</td>
+<td>&Omicron;(n log n)</td>
+</tr>
+<tr>
+<td>quadratic</td>
+<td>&minus;</td>
+<td>&Omicron;(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td>cubic</td>
+<td>&minus;</td>
+<td>&Omicron;(n<sup>3</sup>)</td>
+</tr>
+<tr>
+<td>polynomial</td>
+<td>&minus;</td>
+<td>n<sup>&Omicron;(1)</sup></td>
+</tr>
+<tr>
+<td>exponential</td>
+<td>&minus;</td>
+<td>2<sup>&Omicron;(n)</sup></td>
+</tr>
+</table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+</html>

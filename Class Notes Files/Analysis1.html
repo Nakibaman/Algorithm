@@ -1,0 +1,54 @@
+<!doctype html> 
+<head>
+<meta charset="utf-8">
+<title>Design and Analysis of Algorithms Analysis of Algorithms</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<base href="https://www.tutorialspoint.com" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\(","\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }          
+}              
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+<link  rel="stylesheet" href="/scripts/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="/scripts/print.css" />
+<link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
+<script type="text/javascript" src="/scripts/prettify.js"></script>
+</head>
+<body onload="prettyPrint()">
+<div id="print-wrapper">
+   <div id="print-area-wrapper">
+      <div class="clearfix" id="actual-print-area">
+<div class="row">
+             <h1 class="title">DAA - Analysis of Algorithms</h1>
+             <a href="https://www.tutorialspoint.com/design_and_analysis_of_algorithms/analysis_of_algorithms.htm" id="print-source">https://www.tutorialspoint.com/design_and_analysis_of_algorithms/analysis_of_algorithms.htm</a><div id="page-print-copy">Copyright &copy; tutorialspoint.com</div>
+             <div style="clear:both"></div>
+             <br>
+	     <div id="page-content">
+<p>In theoretical analysis of algorithms, it is common to estimate their complexity in the asymptotic sense, i.e., to estimate the complexity function for arbitrarily large input. The term <b>"analysis of algorithms"</b> was coined by Donald Knuth.</p>
+<p>Algorithm analysis is an important part of computational complexity theory, which provides theoretical estimation for the required resources of an algorithm to solve a specific computational problem. Most algorithms are designed to work with inputs of arbitrary length. Analysis of algorithms is the determination of the amount of time and space resources required to execute it.</p>
+<p>Usually, the efficiency or running time of an algorithm is stated as a function relating the input length to the number of steps, known as <b>time complexity</b>, or volume of memory, known as <b>space complexity</b>.</p>
+<h2>The Need for Analysis</h2>
+<p>In this chapter, we will discuss the need for analysis of algorithms and how to choose a better algorithm for a particular problem as one computational problem can be solved by different algorithms.</p>
+<p>By considering an algorithm for a specific problem, we can begin to develop pattern recognition so that similar types of problems can be solved by the help of this algorithm.</p>
+<p>Algorithms are often quite different from one another, though the objective of these algorithms are the same. For example, we know that a set of numbers can be sorted using different algorithms. Number of comparisons performed by one algorithm may vary with others for the same input. Hence, time complexity of those algorithms may differ. At the same time, we need to calculate the memory space required by each algorithm.</p>
+<p>Analysis of algorithm is the process of analyzing the problem-solving capability of the algorithm in terms of the time and size required (the size of memory for storage while implementation). However, the main concern of analysis of algorithms is the required time or performance. Generally, we perform the following types of analysis &minus;</p>
+<ul class="list">
+<li><p><b>Worst-case</b> &minus; The maximum number of steps taken on any instance of size <b>a</b>.</p></li>
+<li><p><b>Best-case</b> &minus; The minimum number of steps taken on any instance of size <b>a</b>.</p></li>
+<li><p><b>Average case</b> &minus; An average number of steps taken on any instance of size <b>a</b>.</p></li>
+<li><p><b>Amortized</b> &minus; A sequence of operations applied to the input of size <b>a</b> averaged over time.</p></li>
+</ul>
+<p>To solve a problem, we need to consider time as well as space complexity as the program may run on a system where memory is limited but adequate space is available or may be vice-versa. In this context, if we compare <b>bubble sort</b> and <b>merge sort</b>. Bubble sort does not require additional memory, but merge sort requires additional space. Though time complexity of bubble sort is higher compared to merge sort, we may need to apply bubble sort if the program needs to run in an environment, where memory is very limited.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+</html>

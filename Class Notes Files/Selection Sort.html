@@ -1,0 +1,196 @@
+<!doctype html> 
+<head>
+<meta charset="utf-8">
+<title>Design and Analysis of Algorithms Selection Sort</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<base href="https://www.tutorialspoint.com" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\(","\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }          
+}              
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+<link  rel="stylesheet" href="/scripts/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="/scripts/print.css" />
+<link rel="stylesheet" type="text/css" href="/scripts/prettify.css" />
+<script type="text/javascript" src="/scripts/prettify.js"></script>
+</head>
+<body onload="prettyPrint()">
+<div id="print-wrapper">
+   <div id="print-area-wrapper">
+      <div class="clearfix" id="actual-print-area">
+<div class="row">
+             <h1 class="title">DAA - Selection Sort</h1>
+             <a href="https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_selection_sort.htm" id="print-source">https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_selection_sort.htm</a><div id="page-print-copy">Copyright &copy; tutorialspoint.com</div>
+             <div style="clear:both"></div>
+             <br>
+	     <div id="page-content">
+<p>This type of sorting is called <b>Selection Sort</b> as it works by repeatedly sorting elements. It works as follows: first find the smallest in the array and exchange it with the element in the first position, then find the second smallest element and exchange it with the element in the second position, and continue in this way until the entire array is sorted.</p>
+<pre class="result notranslate">
+<b>Algorithm: Selection-Sort (A)</b> 
+fori &larr; 1 to n-1 do 
+   min j &larr; i; 
+   min x &larr; A[i] 
+   for j &larr;i + 1 to n do 
+      if A[j] &lt; min x then 
+         min j &larr; j 
+         min x &larr; A[j] 
+   A[min j] &larr; A [i] 
+   A[i] &larr; min x 
+</pre>
+<p>Selection sort is among the simplest of sorting techniques and it works very well for small files. It has a quite important application as each item is actually moved at the most once.</p>
+<p>Section sort is a method of choice for sorting files with very large objects (records) and small keys. The worst case occurs if the array is already sorted in a descending order and we want to sort them in an ascending order.</p>
+<p>Nonetheless, the time required by selection sort algorithm is not very sensitive to the original order of the array to be sorted: the test if <b><i>A[j]</i></b> &lt; <b><i>min x</i></b> is executed exactly the same number of times in every case.</p>
+<p>Selection sort spends most of its time trying to find the minimum element in the unsorted part of the array. It clearly shows the similarity between Selection sort and Bubble sort.</p>
+<ul class="list">
+<li><p>Bubble sort selects the maximum remaining elements at each stage, but wastes some effort imparting some order to an unsorted part of the array.</p></li>
+<li><p>Selection sort is quadratic in both the worst and the average case, and requires no extra memory.</p></li>
+</ul>
+<p>For each <b><i>i</i></b> from <b><i>1</i></b> to <b><i>n - 1</i></b>, there is one exchange and <b><i>n - i</i></b> comparisons, so there is a total of <b><i>n - 1</i></b> exchanges and</p>
+<p style="padding-left:15%"><b><i>(n − 1) + (n − 2) + ...+ 2 + 1 = n(n − 1)/2</i></b> comparisons.</p>
+<p>These observations hold, no matter what the input data is.</p>
+<p>In the worst case, this could be quadratic, but in the average case, this quantity is <b><i>O(n log n)</i></b>. It implies that the <b>running time of Selection sort is quite insensitive to the input</b>.</p>
+<h2>Implementation</h2>
+<pre class="result notranslate">
+Void Selection-Sort(int numbers[], int array_size) { 
+   int i, j; 
+   int min, temp;  
+   for (i = 0; I &lt; array_size-1; i++) { 
+      min = i; 
+      for (j = i+1; j &lt; array_size; j++) 
+         if (numbers[j] &lt; numbers[min]) 
+            min = j; 
+      temp = numbers[i]; 
+      numbers[i] = numbers[min]; 
+      numbers[min] = temp; 
+   } 
+} 
+</pre>
+<h2>Example</h2>
+<table border="0" style="width:100%">
+<tr>
+<td><p><b>Unsorted list:</b></p></td>
+<td>
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td style="padding:5px;">5</td>
+<td style="padding:5px;">2</td>
+<td style="padding:5px;">1</td>
+<td style="padding:5px;">4</td>
+<td style="padding:5px;">3</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h3>1<sup>st</sup> iteration:</h3>
+<p style="padding-left:15%">Smallest = 5</p>
+<p style="padding-left:15%">2 &lt; 5, smallest = 2</p>
+<p style="padding-left:15%">1 &lt; 2, smallest = 1</p>
+<p style="padding-left:15%">4 &gt; 1, smallest = 1</p>
+<p style="padding-left:15%">3 &gt; 1, smallest = 1</p>
+<table border="0" style="width:100%">
+<tr>
+<td style="padding-left:15%"><p>Swap 5 and 1</p></td>
+<td style="vertical-align:middle;">
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td style="padding: 5px;">1</td>
+<td style="padding: 5px;">2</td>
+<td style="padding: 5px;">5</td>
+<td style="padding: 5px;">4</td>
+<td style="padding: 5px;">3</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h3>2<sup>nd</sup> iteration:</h3>
+<p style="padding-left:15%">Smallest = 2</p>
+<p style="padding-left:15%">2 &lt; 5, smallest = 2</p>
+<p style="padding-left:15%">2 &lt; 4, smallest = 2</p>
+<p style="padding-left:15%">2 &lt; 3, smallest = 2</p>
+<table border="0" style="width:100%">
+<tr>
+<td style="padding-left:15%"><p>No Swap</p></td>
+<td style="vertical-align:middle;">
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td style="padding: 5px;">1</td>
+<td style="padding: 5px;">2</td>
+<td style="padding: 5px;">5</td>
+<td style="padding: 5px;">4</td>
+<td style="padding: 5px;">3</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h3>3<sup>rd</sup> iteration:</h3>
+<p style="padding-left:15%">Smallest = 5</p>
+<p style="padding-left:15%">4 &lt; 5, smallest = 4</p>
+<p style="padding-left:15%">3 &lt; 4, smallest = 3</p>
+<table border="0" style="width:100%">
+<tr>
+<td style="padding-left:15%"><p>Swap 5 and 3</p></td>
+<td style="vertical-align:middle;">
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td style="padding: 5px;">1</td>
+<td style="padding: 5px;">2</td>
+<td style="padding: 5px;">3</td>
+<td style="padding: 5px;">4</td>
+<td style="padding: 5px;">5</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h3>4<sup>th</sup> iteration:</h3>
+<p style="padding-left:15%">Smallest = 4</p>
+<p style="padding-left:15%">4 &lt; 5, smallest = 4</p>
+<table border="0" style="width:100%">
+<tr>
+<td style="padding-left:15%"><p>No Swap</p></td>
+<td style="vertical-align:middle;">
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td style="padding: 5px;">1</td>
+<td style="padding: 5px;">2</td>
+<td style="padding: 5px;">3</td>
+<td style="padding: 5px;">4</td>
+<td style="padding: 5px;">5</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>Finally,</p>
+<table border="0" style="width:100%">
+<tr>
+<td><p><b>the sorted list is</b></p></td>
+<td>
+<table style="text-align:center;" class="table table-bordered">
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+</html>
