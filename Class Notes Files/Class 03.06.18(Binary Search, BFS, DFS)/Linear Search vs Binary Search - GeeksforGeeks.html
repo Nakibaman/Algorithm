@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.geeksforgeeks.org/linear-search-vs-binary-search/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class=" js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.">
+<link rel="shortcut icon" href="https://www.geeksforgeeks.org/gfg.png" type="image/x-icon">
+
+<meta name="theme-color" content="#4cb96b">
+
+<meta property="og:image" content="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="200">
+<meta property="og:image:height" content="200">
+
+<title>Linear Search vs Binary Search - GeeksforGeeks</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/">
+<!--[if lt IE 9]>
+<script src="https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<script async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/async-ads.js.download"></script><script type="text/javascript" async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f.txt"></script><script type="text/javascript" async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/ga.js.download"></script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(1).txt"></script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/ca-pub-9465609616171866.js.download"></script><script type="text/javascript" async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f.txt"></script><script async="" type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/gpt.js.download"></script><script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "Organization",
+        "name" : "GeeksforGeeks",
+        "url" : "https://www.geeksforgeeks.org/",
+        "logo" : "https://www.geeksforgeeks.org/gfgLogo.png",
+        "description" : "A computer science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.",
+        "founder": [
+            {
+                "@type" : "Person",
+                "name" : "Sandeep Jain",
+                "url" : "https://in.linkedin.com/in/sandeep-jain-b3940815"
+            }
+        ],
+        "sameAs" : [ "https://www.facebook.com/geeksforgeeks.org/",
+            "https://twitter.com/geeksforgeeks",
+            "https://www.linkedin.com/company/1299009",
+            "https://www.youtube.com/geeksforgeeksvideos/"
+        ]
+    }
+</script>
+<script>
+
+    var arrPostCat = new Array();
+            arrPostCat.push('1751');
+        var domain = 1;
+    var arrPost = new Array();
+    var post_id = "142323";
+    var post_type = "post";
+    var post_slug = window.location.href;
+    var ip = "206.16.134.29";
+    var post_title = "Linear Search vs Binary Search";
+    var post_status = "publish";
+                            var isAdminLoggedIn = 0;
+        </script>
+
+<!-- This site is optimized with the Yoast SEO plugin v3.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Search vs Binary Search - GeeksforGeeks">
+<meta property="og:description" content="Prerequisite: Linear Search Binary Search A linear search scans one item at a time, without jumping to any item . The worst case complexity is  O(n),… Read More »">
+<meta property="og:url" content="https://www.geeksforgeeks.org/linear-search-vs-binary-search/">
+<meta property="og:site_name" content="GeeksforGeeks">
+<meta property="article:tag" content="Binary Search">
+<meta property="article:section" content="Searching">
+<meta property="article:published_time" content="2016-10-20T11:30:42+00:00">
+<meta property="article:modified_time" content="2018-02-26T12:33:45+00:00">
+<meta property="og:updated_time" content="2018-02-26T12:33:45+00:00">
+<meta property="og:image" content="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/Linear.png">
+<meta property="og:image" content="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/binary-3.png">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://www.geeksforgeeks.org/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="GeeksforGeeks » Feed" href="https://www.geeksforgeeks.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="GeeksforGeeks » Comments Feed" href="https://www.geeksforgeeks.org/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.geeksforgeeks.org\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/wp-emoji-release.min.js.download" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="mtq_CoreStyleSheets-css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/mtq_core_style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="mtq_ThemeStyleSheets-css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/mtq_theme_style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-quicklatex-format-css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/quicklatex-format.css" type="text/css" media="all">
+<link rel="stylesheet" id="themonic-fonts-css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="custom-style-css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/gfg-2.2.css" type="text/css" media="all">
+<script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/gfg-7.1.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.geeksforgeeks.org/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.cdn.geeksforgeeks.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.geeksforgeeks.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.6.9">
+<link rel="shortlink" href="https://www.geeksforgeeks.org/?p=142323">
+<link rel="alternate" type="application/json+oembed" href="https://www.geeksforgeeks.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Flinear-search-vs-binary-search%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.geeksforgeeks.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Flinear-search-vs-binary-search%2F&amp;format=xml">
+        <link rel="stylesheet" type="text/css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/cookieconsent.min.css">
+        <script src="./Linear Search vs Binary Search - GeeksforGeeks_files/cookieconsent.min.js.download"></script>
+        <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+              "background": "#3c404d",
+              "text": "#d6d6d6"
+            },
+            "button": {
+              "background": "#8bed4f"
+            }
+          },
+          "theme": "classic",
+            onStatusChange: function(status) {
+            
+            },
+            law: {
+              regionalLaw: false,
+            },
+            location: true,
+            "content": {
+            "message": "We use cookies to ensure you have the best browsing experience on our website. By using our site, you acknowledge that you have read and understood our <a href=\"https://www.geeksforgeeks.org/cookie-policy/\" class=\"cc-link\" target=\"_blank\">Cookie Policy</a> & ",
+            "link": "Privacy Policy",
+            "href": "/privacy-policy/"
+            },
+        cookie: {
+        name : "geeksforgeeks_consent_status",
+        }
+        })});
+    
+        </script>
+    <style>
+#wpadminbar{
+background: #ff0000 !important;
+}
+</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+<link rel="amphtml" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200-100x100.png" sizes="32x32">
+<link rel="icon" href="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png">
+<meta name="msapplication-TileImage" content="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png">
+
+<script type="text/javascript">
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+      '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+
+<script type="text/javascript">
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/27823234/SP', [300, 250], 'div-gpt-ad-1458112424022-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<script type="text/javascript" async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/bsa.js.download"></script><link rel="preload" href="./Linear Search vs Binary Search - GeeksforGeeks_files/f(2).txt" as="script"><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(2).txt"></script><link rel="preload" href="./Linear Search vs Binary Search - GeeksforGeeks_files/f(3).txt" as="script"><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(3).txt"></script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/pubads_impl_211.js.download" async=""></script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/default+en.I.js.download"></script><script src="./Linear Search vs Binary Search - GeeksforGeeks_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Linear Search vs Binary Search - GeeksforGeeks_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/default+en.I.js.download"></script><script id="_bsa_srv-CKYDL2JJ_0" type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/CKYDL2JJ.json"></script><style type="text/css">.gsc-control-cse{font-family:Arial, sans-serif;border-color:#FFFFFF;background-color:#FFFFFF}.gsc-control-cse .gsc-table-result{font-family:Arial, sans-serif}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#6AA84F}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#000000;background-color:#6AA84F;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive{border-color:#E9E9E9;background-color:#E9E9E9}.gsc-tabHeader.gsc-tabhActive{border-color:#FF9900;border-bottom-color:#FFFFFF;background-color:#FFFFFF}.gsc-tabsArea{border-color:#FF9900}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover,.gsc-imageResult:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#006600}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#EC4E20}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#CA7700}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#006600}.gsc-cursor-page{color:#006600}a.gsc-trailing-more-results:link{color:#006600}.gs-webResult .gs-snippet,.gs-imageResult .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl,.gs-imageResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gs-webResult div.gs-visibleUrl-short{display:none}.gs-webResult div.gs-visibleUrl-long{display:block}.gs-promotion div.gs-visibleUrl-short{display:none}.gs-promotion div.gs-visibleUrl-long{display:block}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#E9E9E9;background-color:#FFFFFF;color:#006600}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#FF9900;background-color:#FFFFFF;color:#EC4E20}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#006600}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#006600}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#EC4E20}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#CA7700}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#006600}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:5.5px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script type="text/javascript" id="_bsap_js_785bf45b162de1c5511e8baa02854e5c" src="./Linear Search vs Binary Search - GeeksforGeeks_files/s_785bf45b162de1c5511e8baa02854e5c.js.download" async="async"></script><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/pro.js.download" id="_bsap_premium_pro"></script><script type="text/javascript" id="_bsaPRO_js" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource" async="async"></script><style></style></head>
+
+<body class="single single-post postid-142323 single-format-standard custom-background custom-background-white custom-font-enabled"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-classic cc-bottom cc-color-override-382972913 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">We use cookies to ensure you have the best browsing experience on our website. By using our site, you acknowledge that you have read and understood our <a href="https://www.geeksforgeeks.org/cookie-policy/" class="cc-link" target="_blank">Cookie Policy</a> &amp;  <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.geeksforgeeks.org/privacy-policy/" target="_blank">Privacy Policy</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+
+<!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->
+
+<div id="page" style="position:relative;overflow: unset;z-index:2;" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<div style="margin-bottom: 5px;">	
+		<div class="upper-header">
+            <div id="container-g4g-header">
+                <div id="MasterHead">
+                    <div class="header-gfg-logo">
+                                    <a href="https://www.geeksforgeeks.org/" title="GeeksforGeeks" rel="home"><img src="./Linear Search vs Binary Search - GeeksforGeeks_files/GeeksforGeeksLogoHeader.png" alt="GFG-Logo"></a>
+                            </div>
+
+     <span class="responsive-custom-search">
+    <script>
+      (function() {
+        var cx = '009682134359037907028:tj6eafkv_be';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" placeholder="Custom Search" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-overlay"><div class="gsc-results-close-btn" tabindex="0"></div><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div class="gsc-modal-background-image" tabindex="0"></div></div></div></div>
+    </span>
+
+                    <div class="buttonsProfileSide">
+                        <div class="profile-buttons">
+    <a class="ButtonLogin" href="https://auth.geeksforgeeks.org/">Login</a>
+    </div><div class="masterhead-buttons">
+                               
+                                <a class="ButtonContribute" href="https://www.geeksforgeeks.org/geeks-classes-geeksforgeeks/" style="margin-bottom:5px;">Geeks Classes</a>
+                                <a class="ButtonContribute" href="https://contribute.geeksforgeeks.org/wp-admin/post-new.php">Write an Article</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+
+<div id="profile" style="float: right; margin-top: -1%;margin-right:1%;"></div>
+</div>
+</header></div>
+
+		
+		
+		<nav id="site-navigation" class="themonic-nav" role="navigation" style="width: 100%; position: fixed; top: 0px; z-index: 99998;">
+			<a class="assistive-text" href="https://www.geeksforgeeks.org/linear-search-vs-binary-search/#content" title="Skip to content">Skip to content</a>
+			<div class="menu-iconic-container"><ul id="menu-top" class="nav-menu"><li id="menu-item-147519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147519"><a href="https://www.geeksforgeeks.org/" class="reduceMenuHeight"><img style="width: 30px;vertical-align: middle;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/gfg_transparent_white_small.png"></a></li>
+<li id="menu-item-141975" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-141975"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/" class="reduceMenuHeight">Algo ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-135030" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135030"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#AnalysisofAlgorithms" class="reduceMenuHeight">Analysis of Algorithms</a></li>
+	<li id="menu-item-146823" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146823"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/" class="reduceMenuHeight">Topicwise ►</a>
+	<ul class="sub-menu">
+		<li id="menu-item-147774" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147774"><a href="http://www.geeksforgeeks.org/searching-algorithms/" class="reduceMenuHeight">Searching Algorithms</a></li>
+		<li id="menu-item-147773" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147773"><a href="http://www.geeksforgeeks.org/sorting-algorithms/" class="reduceMenuHeight">Sorting Algorithms</a></li>
+		<li id="menu-item-135041" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135041"><a href="http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/" class="reduceMenuHeight">Graph Algorithms</a></li>
+		<li id="menu-item-135040" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135040"><a href="http://www.geeksforgeeks.org/bitwise-algorithms/" class="reduceMenuHeight">Bit Algorithms</a></li>
+		<li id="menu-item-135034" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135034"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#PatternSearching" class="reduceMenuHeight">Pattern Searching</a></li>
+		<li id="menu-item-135038" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135038"><a href="http://www.geeksforgeeks.org/geometric-algorithms/" class="reduceMenuHeight">Geometric Algorithms</a></li>
+		<li id="menu-item-135039" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135039"><a href="http://www.geeksforgeeks.org/mathematical-algorithms/" class="reduceMenuHeight">Mathematical Algorithms</a></li>
+		<li id="menu-item-135042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135042"><a href="http://www.geeksforgeeks.org/randomized-algorithms/" class="reduceMenuHeight">Randomized Algorithms</a></li>
+		<li id="menu-item-156520" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-156520"><a href="http://www.geeksforgeeks.org/category/algorithm/game-theory/" class="reduceMenuHeight">Game Theory</a></li>
+	</ul>
+</li>
+	<li id="menu-item-146824" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146824"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/" class="reduceMenuHeight">Algorithm Paradigms ►</a>
+	<ul class="sub-menu">
+		<li id="menu-item-135032" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135032"><a href="http://www.geeksforgeeks.org/greedy-algorithms/" class="reduceMenuHeight">Greedy Algorithms</a></li>
+		<li id="menu-item-135033" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135033"><a href="http://www.geeksforgeeks.org/dynamic-programming/" class="reduceMenuHeight">Dynamic Programming</a></li>
+		<li id="menu-item-135037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135037"><a href="http://www.geeksforgeeks.org/divide-and-conquer/" class="reduceMenuHeight">Divide and Conquer</a></li>
+		<li id="menu-item-135036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135036"><a href="http://www.geeksforgeeks.org/backtracking-algorithms/" class="reduceMenuHeight">Backtracking</a></li>
+		<li id="menu-item-137933" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137933"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#BranchandBound" class="reduceMenuHeight">Branch &amp; Bound</a></li>
+	</ul>
+</li>
+	<li id="menu-item-146911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146911"><a href="http://www.geeksforgeeks.org/fundamentals-of-algorithms/" class="reduceMenuHeight">All Algorithms</a></li>
+</ul>
+</li>
+<li id="menu-item-142016" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-142016"><a href="http://www.geeksforgeeks.org/data-structures/" class="reduceMenuHeight">DS  ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-135054" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135054"><a href="http://www.geeksforgeeks.org/array-data-structure/" class="reduceMenuHeight">Array</a></li>
+	<li id="menu-item-135045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135045"><a href="http://www.geeksforgeeks.org/data-structures/linked-list/" class="reduceMenuHeight">LinkedList</a></li>
+	<li id="menu-item-135046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135046"><a href="http://www.geeksforgeeks.org/stack-data-structure/" class="reduceMenuHeight">Stack</a></li>
+	<li id="menu-item-135047" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135047"><a href="http://www.geeksforgeeks.org/queue-data-structure/" class="reduceMenuHeight">Queue</a></li>
+	<li id="menu-item-146827" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146827"><a href="http://www.geeksforgeeks.org/data-structures/" class="reduceMenuHeight">Tree based DS ►</a>
+	<ul class="sub-menu">
+		<li id="menu-item-135048" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135048"><a href="http://www.geeksforgeeks.org/binary-tree-data-structure/" class="reduceMenuHeight">Binary Tree</a></li>
+		<li id="menu-item-135049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135049"><a href="http://www.geeksforgeeks.org/binary-search-tree-data-structure/" class="reduceMenuHeight">Binary Search Tree</a></li>
+		<li id="menu-item-135050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135050"><a href="http://www.geeksforgeeks.org/heap-data-structure/" class="reduceMenuHeight">Heap</a></li>
+	</ul>
+</li>
+	<li id="menu-item-135051" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135051"><a href="http://www.geeksforgeeks.org/hashing-data-structure/" class="reduceMenuHeight">Hashing</a></li>
+	<li id="menu-item-135052" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135052"><a href="http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/" class="reduceMenuHeight">Graph</a></li>
+	<li id="menu-item-135053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135053"><a href="http://www.geeksforgeeks.org/advanced-data-structures/" class="reduceMenuHeight">Advanced Data Structure</a></li>
+	<li id="menu-item-135055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135055"><a href="http://www.geeksforgeeks.org/matrix/" class="reduceMenuHeight">Matrix</a></li>
+	<li id="menu-item-147716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147716"><a href="http://www.geeksforgeeks.org/string-data-structure/" class="reduceMenuHeight">Strings</a></li>
+	<li id="menu-item-135056" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135056"><a href="http://www.geeksforgeeks.org/data-structures/" class="reduceMenuHeight">All Data Structures</a></li>
+</ul>
+</li>
+<li id="menu-item-147478" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-147478"><a href="http://www.geeksforgeeks.org/category/program-output/" class="reduceMenuHeight">Languages ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-135006" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135006"><a href="https://www.geeksforgeeks.org/c-programming-language/" class="reduceMenuHeight">C</a></li>
+	<li id="menu-item-135007" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135007"><a href="https://www.geeksforgeeks.org/c-plus-plus/" class="reduceMenuHeight">C++</a></li>
+	<li id="menu-item-135012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135012"><a href="https://www.geeksforgeeks.org/java/" class="reduceMenuHeight">Java</a></li>
+	<li id="menu-item-137004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137004"><a href="https://www.geeksforgeeks.org/python-programming-language/" class="reduceMenuHeight">Python</a></li>
+	<li id="menu-item-135016" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135016"><a href="http://www.geeksforgeeks.org/sql-tutorial/" class="reduceMenuHeight">SQL</a></li>
+	<li id="menu-item-182096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182096"><a href="https://www.geeksforgeeks.org/php/" class="reduceMenuHeight">PHP</a></li>
+	<li id="menu-item-188679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-188679"><a href="https://www.geeksforgeeks.org/javascript-tutorial/" class="reduceMenuHeight">Javascript</a></li>
+	<li id="menu-item-140854" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-140854"><a title="http://www.geeksforgeeks.org/category/program-output/" href="https://www.geeksforgeeks.org/category/program-output/" class="reduceMenuHeight">Program Output</a></li>
+</ul>
+</li>
+<li id="menu-item-142017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-142017"><a href="http://www.geeksforgeeks.org/about/interview-corner/" class="reduceMenuHeight">Interview  ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-141326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141326"><a href="https://www.geeksforgeeks.org/company-preparation/" class="reduceMenuHeight">Company Prep</a></li>
+	<li id="menu-item-137171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137171"><a href="http://www.geeksforgeeks.org/interview-preparation-for-software-developer/" class="reduceMenuHeight">Top Topics</a></li>
+	<li id="menu-item-137172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137172"><a href="https://practice.geeksforgeeks.org/company-tags" class="reduceMenuHeight">Practice Company Questions</a></li>
+	<li id="menu-item-137173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137173"><a href="http://www.geeksforgeeks.org/about/interview-corner/" class="reduceMenuHeight">Interview Experiences</a></li>
+	<li id="menu-item-137174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137174"><a href="http://www.geeksforgeeks.org/category/interview-experiences/experienced-interview-experiences/" class="reduceMenuHeight">Experienced Interviews</a></li>
+	<li id="menu-item-137175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137175"><a href="http://www.geeksforgeeks.org/category/interview-experiences/internship-interview-experiences/" class="reduceMenuHeight">Internship Interviews</a></li>
+	<li id="menu-item-137176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137176"><a href="http://www.geeksforgeeks.org/category/competitive-programming/" class="reduceMenuHeight">Competitive Programming</a></li>
+	<li id="menu-item-147581" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147581"><a href="http://www.geeksforgeeks.org/software-design-patterns/" class="reduceMenuHeight">Design Patterns</a></li>
+	<li id="menu-item-137186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137186"><a href="http://geeksquiz.com/quiz-corner/" class="reduceMenuHeight">Multiple Choice Quizzes</a></li>
+</ul>
+</li>
+<li id="menu-item-137178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-137178"><a href="http://www.geeksforgeeks.org/student-corner/" class="reduceMenuHeight">Students  ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-137183" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137183"><a href="http://www.geeksforgeeks.org/campus-ambassador-program-by-geeksforgeeks/" class="reduceMenuHeight">Campus Ambassador Program</a></li>
+	<li id="menu-item-137179" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137179"><a href="http://www.geeksforgeeks.org/geek-of-the-month/" class="reduceMenuHeight">Geek of the Month</a></li>
+	<li id="menu-item-137570" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137570"><a href="http://geeksquiz.com/placements/" class="reduceMenuHeight">Placement Course</a></li>
+	<li id="menu-item-136004" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-136004"><a href="https://www.geeksforgeeks.org/category/project/" class="reduceMenuHeight">Project</a></li>
+	<li id="menu-item-137180" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137180"><a href="http://www.geeksforgeeks.org/category/competitive-programming/" class="reduceMenuHeight">Competitive Programming</a></li>
+	<li id="menu-item-137181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137181"><a href="http://www.geeksforgeeks.org/testimonials/" class="reduceMenuHeight">Testimonials</a></li>
+	<li id="menu-item-138863" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138863"><a href="http://www.geeksforgeeks.org/category/geek-on-the-top/" class="reduceMenuHeight">Geek on the Top</a></li>
+	<li id="menu-item-141974" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141974"><a href="http://www.geeksforgeeks.org/careers/" class="reduceMenuHeight">Careers</a></li>
+	<li id="menu-item-137378" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137378"><a href="http://www.geeksforgeeks.org/internship/" class="reduceMenuHeight">Internship</a></li>
+	<li id="menu-item-147457" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147457"><a href="http://www.geeksforgeeks.org/school-programming/" class="reduceMenuHeight">School Programming</a></li>
+</ul>
+</li>
+<li id="menu-item-146712" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146712"><a href="http://www.geeksforgeeks.org/gate-corner-2-gq/" class="reduceMenuHeight">GATE ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-146713" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146713"><a href="http://www.geeksforgeeks.org/gate-corner-2-gq/" class="reduceMenuHeight">GATE CS Corner</a></li>
+	<li id="menu-item-146714" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146714"><a href="http://www.geeksforgeeks.org/gate-cs-notes-gq/" class="reduceMenuHeight">GATE Notes</a></li>
+	<li id="menu-item-146715" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146715"><a href="http://www.geeksforgeeks.org/lmns-gq/" class="reduceMenuHeight">Last Minute Notes</a></li>
+	<li id="menu-item-146716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146716"><a href="http://www.geeksforgeeks.org/original-gate-previous-year-question-papers-cse-and-it-gq/" class="reduceMenuHeight">Official Papers</a></li>
+	<li id="menu-item-146717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146717"><a href="http://www.geeksforgeeks.org/gate-cs-2018-important-dates/" class="reduceMenuHeight">Gate 2018 Important Dates and Links</a></li>
+</ul>
+</li>
+<li id="menu-item-146718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146718"><a href="http://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/" class="reduceMenuHeight">CS Subjects ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-146729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146729"><a href="http://www.geeksforgeeks.org/operating-systems/" class="reduceMenuHeight">Operating Systems</a></li>
+	<li id="menu-item-146724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146724"><a href="http://www.geeksforgeeks.org/dbms/" class="reduceMenuHeight">DBMS</a></li>
+	<li id="menu-item-146721" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146721"><a href="http://www.geeksforgeeks.org/computer-network-tutorials/" class="reduceMenuHeight">Computer Networks</a></li>
+	<li id="menu-item-146720" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146720"><a href="http://www.geeksforgeeks.org/compiler-design-tutorials/" class="reduceMenuHeight">Compiler Design</a></li>
+	<li id="menu-item-147831" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147831"><a href="http://www.geeksforgeeks.org/web-technology/" class="reduceMenuHeight">Web Technology</a></li>
+	<li id="menu-item-200760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200760"><a href="https://www.geeksforgeeks.org/microprocessor-tutorials/" class="reduceMenuHeight">Microprocessor</a></li>
+	<li id="menu-item-146722" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146722"><a href="http://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/" class="reduceMenuHeight">Computer Organization &amp; Architecture</a></li>
+	<li id="menu-item-146726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146726"><a href="http://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/" class="reduceMenuHeight">Digital Electronics</a></li>
+	<li id="menu-item-146727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146727"><a href="http://www.geeksforgeeks.org/engineering-mathematics-tutorials/" class="reduceMenuHeight">Engg. Mathematics</a></li>
+	<li id="menu-item-146730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146730"><a href="http://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/" class="reduceMenuHeight">Theory of Computation</a></li>
+	<li id="menu-item-147512" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147512"><a href="http://www.geeksforgeeks.org/advanced-computer-subjects-tutorials/" class="reduceMenuHeight">Advanced Topics</a></li>
+	<li id="menu-item-146725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146725"><a href="http://www.geeksforgeeks.org/category/geeksquiz/articles-gq/difference-gq/" class="reduceMenuHeight">What’s Difference?</a></li>
+</ul>
+</li>
+<li id="menu-item-140855" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-140855"><a href="http://quiz.geeksforgeeks.org/quiz-corner/" class="reduceMenuHeight">Quizzes ▼</a>
+<ul class="sub-menu">
+	<li id="menu-item-146748" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146748"><a href="http://www.geeksforgeeks.org/quizzes-on-programming-languages-gq/" class="reduceMenuHeight">Languages ►</a>
+	<ul class="sub-menu">
+		<li id="menu-item-146743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146743"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#C%20Programming%20Mock%20Tests" class="reduceMenuHeight">C</a></li>
+		<li id="menu-item-146745" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146745"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#C++%20Programming%20Mock%20Tests" class="reduceMenuHeight">C++</a></li>
+		<li id="menu-item-146746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146746"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Java%20Programming%20Mock%20Tests" class="reduceMenuHeight">Java</a></li>
+		<li id="menu-item-146747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146747"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Python%20Programming%20Mock%20Tests" class="reduceMenuHeight">Python</a></li>
+	</ul>
+</li>
+	<li id="menu-item-146825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-146825"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Data%20Structures%20Mock%20Tests" class="reduceMenuHeight">CS Subjectwise ►</a>
+	<ul class="sub-menu">
+		<li id="menu-item-146731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146731"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Data%20Structures%20Mock%20Tests" class="reduceMenuHeight">Data Structures</a></li>
+		<li id="menu-item-146732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146732"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Algorithms%20Mock%20Tests" class="reduceMenuHeight">Algorithms</a></li>
+		<li id="menu-item-146733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146733"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Operating%20Systems%20Mock%20Tests" class="reduceMenuHeight">Operating Systems</a></li>
+		<li id="menu-item-146734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146734"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#DBMS%20Mock%20Tests" class="reduceMenuHeight">DBMS</a></li>
+		<li id="menu-item-146735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146735"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Compiler%20Design%20Mock%20Tests" class="reduceMenuHeight">Compiler Design</a></li>
+		<li id="menu-item-146736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146736"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Networks%20Mock%20Tests" class="reduceMenuHeight">Computer Networks</a></li>
+		<li id="menu-item-146737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146737"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Theory%20of%20Computation%20Mock%20Tests" class="reduceMenuHeight">Theory of Computation</a></li>
+		<li id="menu-item-146738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146738"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Organization%20and%20Architecture" class="reduceMenuHeight">Computer Organization</a></li>
+		<li id="menu-item-146739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146739"><a href="http://www.geeksforgeeks.org/software-engineering-gq/" class="reduceMenuHeight">Software Engineering</a></li>
+	</ul>
+</li>
+	<li id="menu-item-146740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146740"><a href="http://www.geeksforgeeks.org/html-and-xml-gq/" class="reduceMenuHeight">HTML &amp; XML</a></li>
+	<li id="menu-item-146741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146741"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Engineering%20Mathematics" class="reduceMenuHeight">Engg. Mathematics</a></li>
+	<li id="menu-item-146742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146742"><a href="http://www.geeksforgeeks.org/quiz-corner-gq/#Aptitude%20Mock%20Tests" class="reduceMenuHeight">Aptitude</a></li>
+</ul>
+</li>
+<li id="menu-item-135367" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-135367"><a href="https://www.geeksforgeeks.org/category/guestblogs/" class="reduceMenuHeight">GBlog</a></li>
+<li id="menu-item-141885" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141885"><a href="http://www.geeksforgeeks.org/puzzles/" class="reduceMenuHeight">Puzzles</a></li>
+<li id="menu-item-141816" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141816"><a href="https://www.geeksforgeeks.org/geeks-classes-geeksforgeeks/" class="reduceMenuHeight">What’s New?</a></li>
+</ul><select class="selectnav" id="selectnav1"><option value="">Menu</option><option value="https://www.geeksforgeeks.org/"></option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algo ▼</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#AnalysisofAlgorithms">- Analysis of Algorithms</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">- Topicwise ►</option><option value="http://www.geeksforgeeks.org/searching-algorithms/">-- Searching Algorithms</option><option value="http://www.geeksforgeeks.org/sorting-algorithms/">-- Sorting Algorithms</option><option value="http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/">-- Graph Algorithms</option><option value="http://www.geeksforgeeks.org/bitwise-algorithms/">-- Bit Algorithms</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#PatternSearching">-- Pattern Searching</option><option value="http://www.geeksforgeeks.org/geometric-algorithms/">-- Geometric Algorithms</option><option value="http://www.geeksforgeeks.org/mathematical-algorithms/">-- Mathematical Algorithms</option><option value="http://www.geeksforgeeks.org/randomized-algorithms/">-- Randomized Algorithms</option><option value="http://www.geeksforgeeks.org/category/algorithm/game-theory/">-- Game Theory</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">- Algorithm Paradigms ►</option><option value="http://www.geeksforgeeks.org/greedy-algorithms/">-- Greedy Algorithms</option><option value="http://www.geeksforgeeks.org/dynamic-programming/">-- Dynamic Programming</option><option value="http://www.geeksforgeeks.org/divide-and-conquer/">-- Divide and Conquer</option><option value="http://www.geeksforgeeks.org/backtracking-algorithms/">-- Backtracking</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/#BranchandBound">-- Branch &amp; Bound</option><option value="http://www.geeksforgeeks.org/fundamentals-of-algorithms/">- All Algorithms</option><option value="http://www.geeksforgeeks.org/data-structures/">DS ▼</option><option value="http://www.geeksforgeeks.org/array-data-structure/">- Array</option><option value="http://www.geeksforgeeks.org/data-structures/linked-list/">- LinkedList</option><option value="http://www.geeksforgeeks.org/stack-data-structure/">- Stack</option><option value="http://www.geeksforgeeks.org/queue-data-structure/">- Queue</option><option value="http://www.geeksforgeeks.org/data-structures/">- Tree based DS ►</option><option value="http://www.geeksforgeeks.org/binary-tree-data-structure/">-- Binary Tree</option><option value="http://www.geeksforgeeks.org/binary-search-tree-data-structure/">-- Binary Search Tree</option><option value="http://www.geeksforgeeks.org/heap-data-structure/">-- Heap</option><option value="http://www.geeksforgeeks.org/hashing-data-structure/">- Hashing</option><option value="http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/">- Graph</option><option value="http://www.geeksforgeeks.org/advanced-data-structures/">- Advanced Data Structure</option><option value="http://www.geeksforgeeks.org/matrix/">- Matrix</option><option value="http://www.geeksforgeeks.org/string-data-structure/">- Strings</option><option value="http://www.geeksforgeeks.org/data-structures/">- All Data Structures</option><option value="http://www.geeksforgeeks.org/category/program-output/">Languages ▼</option><option value="https://www.geeksforgeeks.org/c-programming-language/">- C</option><option value="https://www.geeksforgeeks.org/c-plus-plus/">- C++</option><option value="https://www.geeksforgeeks.org/java/">- Java</option><option value="https://www.geeksforgeeks.org/python-programming-language/">- Python</option><option value="http://www.geeksforgeeks.org/sql-tutorial/">- SQL</option><option value="https://www.geeksforgeeks.org/php/">- PHP</option><option value="https://www.geeksforgeeks.org/javascript-tutorial/">- Javascript</option><option value="https://www.geeksforgeeks.org/category/program-output/">- Program Output</option><option value="http://www.geeksforgeeks.org/about/interview-corner/">Interview ▼</option><option value="https://www.geeksforgeeks.org/company-preparation/">- Company Prep</option><option value="http://www.geeksforgeeks.org/interview-preparation-for-software-developer/">- Top Topics</option><option value="https://practice.geeksforgeeks.org/company-tags">- Practice Company Questions</option><option value="http://www.geeksforgeeks.org/about/interview-corner/">- Interview Experiences</option><option value="http://www.geeksforgeeks.org/category/interview-experiences/experienced-interview-experiences/">- Experienced Interviews</option><option value="http://www.geeksforgeeks.org/category/interview-experiences/internship-interview-experiences/">- Internship Interviews</option><option value="http://www.geeksforgeeks.org/category/competitive-programming/">- Competitive Programming</option><option value="http://www.geeksforgeeks.org/software-design-patterns/">- Design Patterns</option><option value="http://geeksquiz.com/quiz-corner/">- Multiple Choice Quizzes</option><option value="http://www.geeksforgeeks.org/student-corner/">Students ▼</option><option value="http://www.geeksforgeeks.org/campus-ambassador-program-by-geeksforgeeks/">- Campus Ambassador Program</option><option value="http://www.geeksforgeeks.org/geek-of-the-month/">- Geek of the Month</option><option value="http://geeksquiz.com/placements/">- Placement Course</option><option value="https://www.geeksforgeeks.org/category/project/">- Project</option><option value="http://www.geeksforgeeks.org/category/competitive-programming/">- Competitive Programming</option><option value="http://www.geeksforgeeks.org/testimonials/">- Testimonials</option><option value="http://www.geeksforgeeks.org/category/geek-on-the-top/">- Geek on the Top</option><option value="http://www.geeksforgeeks.org/careers/">- Careers</option><option value="http://www.geeksforgeeks.org/internship/">- Internship</option><option value="http://www.geeksforgeeks.org/school-programming/">- School Programming</option><option value="http://www.geeksforgeeks.org/gate-corner-2-gq/">GATE ▼</option><option value="http://www.geeksforgeeks.org/gate-corner-2-gq/">- GATE CS Corner</option><option value="http://www.geeksforgeeks.org/gate-cs-notes-gq/">- GATE Notes</option><option value="http://www.geeksforgeeks.org/lmns-gq/">- Last Minute Notes</option><option value="http://www.geeksforgeeks.org/original-gate-previous-year-question-papers-cse-and-it-gq/">- Official Papers</option><option value="http://www.geeksforgeeks.org/gate-cs-2018-important-dates/">- Gate 2018 Important Dates and Links</option><option value="http://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/">CS Subjects ▼</option><option value="http://www.geeksforgeeks.org/operating-systems/">- Operating Systems</option><option value="http://www.geeksforgeeks.org/dbms/">- DBMS</option><option value="http://www.geeksforgeeks.org/computer-network-tutorials/">- Computer Networks</option><option value="http://www.geeksforgeeks.org/compiler-design-tutorials/">- Compiler Design</option><option value="http://www.geeksforgeeks.org/web-technology/">- Web Technology</option><option value="https://www.geeksforgeeks.org/microprocessor-tutorials/">- Microprocessor</option><option value="http://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/">- Computer Organization &amp; Architecture</option><option value="http://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/">- Digital Electronics</option><option value="http://www.geeksforgeeks.org/engineering-mathematics-tutorials/">- Engg. Mathematics</option><option value="http://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/">- Theory of Computation</option><option value="http://www.geeksforgeeks.org/advanced-computer-subjects-tutorials/">- Advanced Topics</option><option value="http://www.geeksforgeeks.org/category/geeksquiz/articles-gq/difference-gq/">- What’s Difference?</option><option value="http://quiz.geeksforgeeks.org/quiz-corner/">Quizzes ▼</option><option value="http://www.geeksforgeeks.org/quizzes-on-programming-languages-gq/">- Languages ►</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#C%20Programming%20Mock%20Tests">-- C</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#C++%20Programming%20Mock%20Tests">-- C++</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Java%20Programming%20Mock%20Tests">-- Java</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Python%20Programming%20Mock%20Tests">-- Python</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Data%20Structures%20Mock%20Tests">- CS Subjectwise ►</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Data%20Structures%20Mock%20Tests">-- Data Structures</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Algorithms%20Mock%20Tests">-- Algorithms</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Operating%20Systems%20Mock%20Tests">-- Operating Systems</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#DBMS%20Mock%20Tests">-- DBMS</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Compiler%20Design%20Mock%20Tests">-- Compiler Design</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Networks%20Mock%20Tests">-- Computer Networks</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Theory%20of%20Computation%20Mock%20Tests">-- Theory of Computation</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Organization%20and%20Architecture">-- Computer Organization</option><option value="http://www.geeksforgeeks.org/software-engineering-gq/">-- Software Engineering</option><option value="http://www.geeksforgeeks.org/html-and-xml-gq/">- HTML &amp; XML</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Engineering%20Mathematics">- Engg. Mathematics</option><option value="http://www.geeksforgeeks.org/quiz-corner-gq/#Aptitude%20Mock%20Tests">- Aptitude</option><option value="https://www.geeksforgeeks.org/category/guestblogs/">GBlog</option><option value="http://www.geeksforgeeks.org/puzzles/">Puzzles</option><option value="https://www.geeksforgeeks.org/geeks-classes-geeksforgeeks/">What’s New?</option></select></div>		</nav><!-- #site-navigation -->
+		<div class="clear"></div>
+	<!-- #masthead -->
+<button id="scrollTopBtn" title="Scroll to Top" type="button" class="btn btn-success" style="display: block; opacity: 1;">▲</button>
+	<div id="main" class="wrapper">
+<div class="leftSideBarParent">
+    <div class="leftSideBar">
+        <div class="eventSection"><a class="eventLink" href="https://www.geeksforgeeks.org/geeks-classes-geeksforgeeks/">Geeks Classes in Noida</a></div><div class="menuDivForLeftbar" style="position: relative;left: 10px;"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div><span class="leftbarDataSpan" data-pid="142323" data-lid="24" data-type="post" data-termid="1751"></span><div class="quickLink_S">
+<table>
+<tbody>
+
+<tr>
+<td class="quickLink-header_S"><b>Searching Algorithms</b></td>
+</tr>
+
+
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/linear-search/">Linear Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/binary-search/">Binary Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/jump-search/">Jump Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/interpolation-search/">Interpolation Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/exponential-search/">Exponential Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/sublist-search-search-a-linked-list-in-another-list/">Sublist Search (Search a linked list in another list)</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/fibonacci-search/">Fibonacci Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/the-ubiquitous-binary-search-set-1/">The Ubiquitous Binary Search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/recursive-c-program-linearly-search-element-given-array/">Recursive program to linearly search an element in a given array</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/recursive-function-to-do-substring-search/">Recursive function to do substring search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/find-the-point-where-a-function-becomes-negative/">Unbounded Binary Search Example</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Comparisons :</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/linear-search-vs-binary-search/">Linear Search vs Binary Search</a></td>
+</tr><tr>
+<td><a href="http://www.geeksforgeeks.org/g-fact-84/">Interpolation search vs Binary search</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/binary-search-preferred-ternary-search/">Why is Binary Search preferred over Ternary Search ?</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Library Implementations of Searching Algorithms : </b></td>
+</tr>
+
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/binary-search-functions-in-c-stl-binary_search-lower_bound-and-upper_bound/">Binary Search functions in C++ STL</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/arrays-binarysearch-java-examples-set-1/">Arrays.binarySearch() in Java with examples | Set 1</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/arrays-binarysearch-in-java-with-examples-set-2-search-in-subarray/">Arrays.binarySearch() in Java with examples | Set 2 (Search in subarray)</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/collections-binarysearch-java-examples/">Collections.binarySearch() in Java with Examples</a></td>
+</tr>
+
+
+<tr>
+<td class="quickLink-header_S"><b>Sorting</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/bubble-sort/">Bubble Sort</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/insertion-sort/">Insertion Sort</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/quick-sort/">Quick Sort</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/sorting-algorithms/">More...</a></td>
+</tr>
+
+
+<tr>
+<td class="quickLink-header_S"><b>Arrays</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/">Segregate 0s and 1s in an array</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/">Rearrange positive and negative numbers in O(n) time and O(1) extra space</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/maximum-product-subarray/">Maximum Product Sub-array</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/array-data-structure/">More...</a></td>
+</tr>
+
+
+<tr>
+<td class="quickLink-header_S"><b>Strings</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/return-maximum-occurring-character-in-the-input-string/">Return maximum occurring character in an input string</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/">Check whether two strings are anagram of each other</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/remove-all-duplicates-from-the-input-string/">Remove all duplicates from a given string</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/string-data-structure/">More...</a></td>
+</tr>
+
+
+<tr>
+<td class="quickLink-header_S"><b>Linked List</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/detect-loop-in-a-linked-list/">Detect loop in a linked list</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/">Find the middle of a given linked list</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/reverse-a-linked-list/">Reverse a linked list</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/data-structures/linked-list/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Stack</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/?p=18754">Implement two stacks in an array</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/">Infix to Postfix Conversion using Stack</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/the-stock-span-problem/">The Stock Span Problem</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/stack-data-structure/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Queue</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/?p=5009">Implement Queue using Stacks</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/implementation-deque-using-circular-array/">Implementation of Deque using circular array</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/">How to efficiently implement k Queues in a single array?</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/queue-data-structure/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Binary Tree</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/print-level-order-traversal-line-line/">Print level order traversal line by line | Set 1</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/">Diagonal Traversal of Binary Tree</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/">Boundary Traversal of binary tree</a></td>
+</tr><tr>
+<td><a href="http://www.geeksforgeeks.org/binary-tree-data-structure/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Binary Search Tree</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/">Lowest Common Ancestor in a Binary Search Tree</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/check-if-each-internal-node-of-a-bst-has-exactly-one-child/">Check if each internal node of a BST has exactly one child</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/">Merge Two Balanced Binary Search Trees</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/binary-search-tree-data-structure/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Heap</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/binomial-heap-2/">Binomial Heap</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/fibonacci-heap-set-1-introduction/">Fibonacci Heap</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/heap-data-structure/">More...</a></td>
+</tr>
+
+<tr>
+<td class="quickLink-header_S"><b>Graph</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/union-find/">Detect Cycle in an Undirected Graph</a></td>
+</tr>
+<tr><td><a href="http://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/">Longest Path in a Directed Acyclic Graph</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/">More...</a></td>
+</tr>
+
+
+<tr>
+<td class="quickLink-header_S"><b>Hashing</b></td>
+</tr>
+
+<tr>
+<td><a href="http://www.geeksforgeeks.org/count-distinct-elements-in-every-window-of-size-k/">Count distinct elements in every window of size k</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/">Largest subarray with equal number of 0s and 1s</a></td>
+</tr>
+<tr>
+<td><a href="http://www.geeksforgeeks.org/hashing-data-structure/">More...</a></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+    </div>
+</div>
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+                        							 	<article id="post-142323" class="post-142323 post type-post status-publish format-standard hentry category-searching tag-binary-search">
+				<header class="entry-header">
+						<h1 class="entry-title">Linear Search vs Binary Search</h1>
+				
+						</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Prerequisite:</p>
+<ul>
+<li><a href="http://quiz.geeksforgeeks.org/linear-search/">Linear Search</a></li>
+<li><a href="http://quiz.geeksforgeeks.org/binary-search/">Binary Search</a></li>
+</ul>
+<p>A linear&nbsp;search scans one item at a time, without jumping to any item .</p>
+<ol>
+<li>The worst case complexity is &nbsp;O(n), sometimes known an O(n) search</li>
+<li>Time taken to search elements keep increasing as the number of elements are increased.</li>
+</ol>
+<p>A binary search however, cut down your search to half as soon as you find middle of a sorted list.</p>
+<ol>
+<li>The middle element is looked to check if it is greater than or less than the value to be searched.</li>
+<li>Accordingly, search is done to either half of the given list</li>
+</ol>
+<p style="text-align: center"><strong>Important Differences</strong></p>
+<ul>
+<li>Input data needs to be sorted in Binary Search and not in Linear Search</li>
+<li>Linear search does the&nbsp;sequential access whereas Binary search access data randomly.</li>
+<li>Time complexity of linear search -O(n) , Binary search has time complexity O(log n).</li>
+<li>&nbsp;Linear search performs&nbsp;equality comparisons and Binary search performs ordering comparisons</li>
+</ul>
+<p>Let us look at an example to compare the two:</p>
+<p style="text-align: center"><strong>Linear Search to find the element “J” in a given sorted list from A-X</strong></p>
+<p><a href="./Linear Search vs Binary Search - GeeksforGeeks_files/Linear.png"><img class="aligncenter size-full wp-image-27883" src="./Linear Search vs Binary Search - GeeksforGeeks_files/Linear.png" alt="linear-search" width="962" height="254"></a></p>
+<p style="text-align: center"><strong>Binary Search to find the element “J” in a given sorted list from A-X</strong></p>
+<p><a href="./Linear Search vs Binary Search - GeeksforGeeks_files/binary-3.png"><img class="aligncenter size-full wp-image-27881" src="./Linear Search vs Binary Search - GeeksforGeeks_files/binary-3.png" alt="binary-search" width="990" height="393"></a></p>
+<p>&nbsp;</p>
+<p>You may also see</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/#SearchingandSorting">Searching and Sorting Articles</a></li>
+<li><a href="http://quiz.geeksforgeeks.org/algorithms/searching/">Searching</a> and <a href="http://quiz.geeksforgeeks.org/algorithms/searching-and-sorting/">Sorting</a> Quizzes</li>
+<li><a href="https://practice.geeksforgeeks.org/tag-page.php?tag=searching&amp;isCmp=0">Practice Coding Questions</a></li>
+</ul>
+<p><a href="http://cs.brynmawr.edu/Courses/cs110/fall2011/section01/slides/09_Searching.pdf">Image Source</a></p>
+<p>Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above</p>
+<br><script async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(4).txt"></script>
+          <!-- post_bottom_responsive -->
+          <ins class="adsbygoogle" style="display: block; height: 60px;" data-ad-client="ca-pub-9465609616171866" data-ad-slot="8385097921" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:672px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:672px;background-color:transparent;"><iframe width="672" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:672px;height:60px;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource.html"></iframe></ins></ins></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+          <br>
+            <style>.no-p-tag p{display: none;}</style><br><br><div class="no-p-tag"><b style="font-size:15px">Practice Similar Questions On:</b> <div class="practiceButton"><a style="color:#fff; padding:4px" href="https://practice.geeksforgeeks.org/topics/Searching">Searching</a></div><div class="practiceButton"><a style="color:#fff; padding:4px" href="https://practice.geeksforgeeks.org/topics/Binary%20Search">Binary Search</a></div></div><br>
+					
+		<footer class="entry-meta">
+		<span><div class="categoryButton"><a href="https://www.geeksforgeeks.org/category/algorithm/searching/" rel="category tag">Searching</a></div></span> <span><div class="tagButton"><a href="https://www.geeksforgeeks.org/tag/binary-search/" rel="tag">Binary Search</a></div></span>
+           	<div id="improveArticle" style="float: right;cursor: pointer;"><a style="color:#060" href="https://auth.geeksforgeeks.org/?to=https://www.geeksforgeeks.org/linear-search-vs-binary-search/">Login to Improve this Article</a></div><div class="common-bottom">Please write to us at contribute@geeksforgeeks.org to report any issue with the above content.</div>          	
+					</footer><!-- .entry-meta -->
+	</div></article><!-- #post -->
+
+
+<div style="font-size:15px; line-height:22px; margin-left:20px; color:green">
+
+<h2 style="font-size:20px; color: #838383">Recommended Posts:</h2><br><ul><li><a href="https://www.geeksforgeeks.org/binary-search/">Binary Search</a></li><li><a href="https://www.geeksforgeeks.org/second-minimum-element-using-minimum-comparisons/">Second minimum element using minimum comparisons</a></li><li><a href="https://www.geeksforgeeks.org/linear-search/">Linear Search</a></li><li><a href="https://www.geeksforgeeks.org/g-fact-84/">Interpolation search vs Binary search</a></li><li><a href="https://www.geeksforgeeks.org/jump-search/">Jump Search</a></li><li><a href="https://www.geeksforgeeks.org/number-positions-address-row-major-column-major-order/">Number of positions with Same address in row major and column major order</a></li><li><a href="https://www.geeksforgeeks.org/ways-choose-three-points-distance-distant-points-l/">Ways to choose three points with distance between the most distant points &lt;= L</a></li><li><a href="https://www.geeksforgeeks.org/n3-repeated-number-array-o1-space/">N/3 repeated number in an array with O(1) space</a></li><li><a href="https://www.geeksforgeeks.org/maximum-adjacent-difference-array-sorted-form/">Maximum adjacent difference in an array in its sorted form</a></li><li><a href="https://www.geeksforgeeks.org/triplets-array-absolute-difference-less-k/">Triplets in array with absolute difference less than k</a></li></ul><br></div>
+
+
+<!-- Added on 29 Oct 2015 for next and previous from same category -->
+<nav class="nav-single">
+					<div class="assistive-text">Post navigation</div>
+					<span class="nav-previous"><a href="https://www.geeksforgeeks.org/linear-search/" rel="prev">&lt;&lt; Previous Post</a></span>
+					<span class="nav-next"><a href="https://www.geeksforgeeks.org/count-pairs-array-hold-iarri-jarrj/" rel="next">Next Post &gt;&gt;</a></span>
+				</nav><!-- .nav-single -->
+<!--
+<script type="text/javascript">
+	
+				arrPost.push('');
+	
+		   <?php// } ?>
+
+</script>
+-->
+
+
+
+<div class="plugins">
+<div pid="142323" ptitle="Linear Search vs Binary Search" id="ratePlugin"><div class="login">
+            (<a href="https://auth.geeksforgeeks.org/?to=https://www.geeksforgeeks.org/linear-search-vs-binary-search/">Login</a> to Rate)
+            <br><br>
+            </div>
+            <div class="techno">
+            <span id="rating_box" class="avg-rating level-1">1.3</span>
+            <span class="rating-desc"> Average Difficulty : <b id="diff-rating">1.3/5.0</b><br><span id="vote_count">Based on <b>25</b> vote(s)</span></span><br><br>
+        <input rating="1" type="button" class="box basic" value="Basic">
+        <input rating="2" type="button" class="box easy" value="Easy">
+        <input rating="3" type="button" class="box medium" value="Medium">
+        <input rating="4" type="button" class="box hard" value="Hard">
+        <input rating="5" type="button" class="box expert" value="Expert">
+        <br><span class="process"></span></div></div><div pid="142323" ptitle="Linear Search vs Binary Search" id="markPlugin"><br>
+			<br>
+			<div class="lists">
+			<input id="todo" type="checkbox" class="mark">
+			<label class="checkbox" for="todo"> Add to TODO List </label>
+			<br>
+			<input id="done" type="checkbox" class="mark">
+			<label class="checkbox" for="done"> Mark as DONE </label>
+			</div></div></div>
+<div id="author" name="Sandeep Jain"></div>
+<br><br>
+
+<style type="text/css">
+ 
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+#share-buttons a:hover {
+	text-decoration: none;
+}
+</style>
+
+
+<div id="share-buttons" style="display:none">
+   
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u=https://www.geeksforgeeks.org/linear-search-vs-binary-search/" target="_blank" title="Share on Facebook">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/facebook.png" alt="Facebook">
+    </a>
+    
+    <!-- Google+ -->
+    <a href="https://plus.google.com/share?url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/" target="_blank" title="Share on Google">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/google.png" alt="Google">
+    </a>
+    
+    <!-- LinkedIn -->
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/" target="_blank" title="Share on LinkedIn">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/linkedin.png" alt="LinkedIn">
+    </a>
+    
+    <!-- Twitter -->
+    <a href="https://twitter.com/share?url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/&amp;text=Linear%20Search%20vs%20Binary%20Search&amp;hashtags=GeeksforGeeks" target="_blank" title="Share on Twitter">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/twitter.png" alt="Twitter">
+    </a>
+
+    <!-- Pinterest -->
+    <a href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;http://assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());" title="Share on Pinterest">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/pinterest.png" alt="Pinterest">
+    </a>
+    
+    <!-- Reddit -->
+    <a href="http://reddit.com/submit?url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/&amp;title=Linear%20Search%20vs%20Binary%20Search" target="_blank" title="Share on Reddit">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/reddit.png" alt="Reddit">
+    </a>
+    
+    <!-- StumbleUpon-->
+    <a href="http://www.stumbleupon.com/submit?url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/&amp;title=Linear%20Search%20vs%20Binary%20Search" target="_blank" title="Share on StumbleUpon">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/stumbleupon.png" alt="StumbleUpon">
+    </a>
+    
+    <!-- Tumblr-->
+    <a href="http://www.tumblr.com/share/link?url=https://www.geeksforgeeks.org/linear-search-vs-binary-search/&amp;title=Linear%20Search%20vs%20Binary%20Search" target="_blank" title="Share on Tumblr">
+        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/tumblr.png" alt="Tumblr">
+    </a>
+   
+</div>
+
+<br><br>
+<div id="ide_link">
+<p>Writing code in comment? Please use <a href="https://ide.geeksforgeeks.org/">ide.geeksforgeeks.org</a>, generate link and share the link here.</p>
+</div>
+<br>
+<div style="display:flex">
+<button id="comment" class="action-button" style="width:45%;cursor: pointer;margin-right:10%;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0);border-color: #4cb96b;border-radius: 4px;">Load Comments</button>
+<button id="share" class="action-button" onclick="document.getElementById(&#39;share-buttons&#39;).style.display=&#39;block&#39;;this.style.display=&#39;none&#39;;" style="width:45%;cursor: pointer;margin-right:10%;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0);border-color: #4cb96b;border-radius: 4px;">Share this post!</button>
+
+</div>
+
+<div id="disqus_thread"></div>
+
+					</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="text-2" class="widget widget_text">			<div class="textwidget"><script async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(4).txt"></script>
+<!-- Big 300x600 Sidebar -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9465609616171866" data-ad-slot="4402736037" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:300px;height:600px;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource(2).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</aside><aside id="text-3" class="widget widget_text">			<div class="textwidget"><div class="trendings_gfg">
+					<table width="100%" align="center">
+						<thead>
+							<tr>
+								<th style="border:1px solid #6AA84F;background-color:#4CB96B;color:#fff;text-align: center;font-size: 16px;">Trending Content</th>
+							</tr>
+						</thead>
+						<tbody>
+
+<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+
+
+							<a href="https://www.geeksforgeeks.org/python-list/">Python List</a>,  <a href="https://www.geeksforgeeks.org/sets-in-python/">Set</a>, <a href="https://www.geeksforgeeks.org/tuples-in-python/">Tuple</a> &amp; <a href="https://www.geeksforgeeks.org/python-dictionary/">Dictionary</a>
+				</td>
+					</tr>		
+
+<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+
+
+							<a href="https://www.geeksforgeeks.org/number-theory-interesting-facts-and-algorithms/">Number Theory</a>
+				</td>
+					</tr>			
+	
+<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="https://www.geeksforgeeks.org/set-to-array-in-java/">Set to Array in Java</a>
+
+						</td>
+					</tr>			
+												<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+
+
+							<a href="http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/">BFS</a>, 	<a href="http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/">DFS </a>
+
+						</td>
+					</tr>					<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+
+							<a href="http://www.geeksforgeeks.org/school-programming/">School Programming</a>
+
+						</td>
+					</tr>					<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="http://www.geeksforgeeks.org/longest-repeated-subsequence/">Longest Repeated Subsequence</a>
+						</td>
+					</tr>					<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="http://www.geeksforgeeks.org/dynamic-programming-set-12-longest-palindromic-subsequence/">Longest Palindromic Subsequence</a>
+						</td>
+					</tr>					<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="http://www.geeksforgeeks.org/detect-negative-cycle-graph-bellman-ford/">Detect a negative cycle.</a>
+						</td>
+					</tr>							<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="http://www.geeksforgeeks.org/gate-cs-notes-gq/">GATE CS Notes</a>
+						</td>
+					</tr>								<tr>
+						<td style="border:1px solid #6AA84F;padding:2px;">
+							<a href="http://www.geeksforgeeks.org/reverse-a-linked-list/">Reverse a linked list</a>
+
+						</td>
+					</tr>
+						</tbody>
+					</table>
+				</div></div>
+		</aside><aside id="text-4" class="widget widget_text">			<div class="textwidget"><script async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(4).txt"></script>
+<!-- ResponsiveRightBarMay16 -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-9465609616171866" data-ad-slot="7089558833" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:337px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:337px;background-color:transparent;"><iframe width="337" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:337px;height:280px;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</aside><aside id="text-5" class="widget widget_text">			<div class="textwidget"><table align="center" width="100%">
+    <thead>
+        <tr>
+            <th style="border:1px solid #6AA84F;background-color:#4CB96B;color:#fff;text-align: center;font-size: 16px;line-height:1.7;">
+                Most Visited Posts
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/">Top 10 Algorithms and Data Structures for Competitive Programming</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/">Top 10 algorithms in Interview Questions</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/how-to-begin-with-competitive-programming/">How to begin with Competitive Programming?</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/a-complete-step-by-step-guide-for-placement-preparation-by-geeksforgeeks/">Step by Step Guide for Placement Preparation</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/how-to-prepare-for-acm-icpc/">How to prepare for ACM-ICPC?</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://quiz.geeksforgeeks.org/insertion-sort/">Insertion Sort</a>,
+                <a href="http://geeksquiz.com/binary-search/">Binary Search</a>,
+                <a href="http://geeksquiz.com/quick-sort/">QuickSort</a>,
+                <a href="http://geeksquiz.com/merge-sort/">MergeSort</a>,
+                <a href="http://geeksquiz.com/heap-sort/">HeapSort</a>
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+		</aside><aside id="text-7" class="widget widget_text">			<div class="textwidget"><script async="" src="./Linear Search vs Binary Search - GeeksforGeeks_files/f(4).txt"></script>
+<!-- GfGSideBottomResponsive -->
+<ins class="adsbygoogle" style="display: block; height: 281px;" data-ad-client="ca-pub-9465609616171866" data-ad-slot="5749413230" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display: inline-table; border: none; height: 281px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 337px; background-color: transparent;"><ins id="aswift_3_anchor" style="display: block; border: none; height: 281px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 337px; background-color: transparent; overflow: hidden;"><iframe width="337" height="281" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left: 0px; position: absolute; top: 0px; width: 337px; height: 281px;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource(4).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</aside><aside id="text-6" class="widget widget_text">			<div class="textwidget"><table align="center" width="100%">
+    <thead>
+        <tr>
+            <th style="border:1px solid #6AA84F;background-color:#4CB96B;color:#fff;text-align: center;font-size: 16px;line-height:1.7;">
+                Popular Categories
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/interview-experiences/">Interview Experiences</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/advanced-data-structures/">Advanced Data Structures</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/dynamic-programming/">Dynamic Programming</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/greedy/">Greedy Algorithms</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/backtracking/">Backtracking</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/pattern-searching/">Pattern Searching</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/divide-and-conquer/">Divide &amp; Conquer</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/algorithm/geometric/">Geometric Algorithms</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/searching/">Searching</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/sorting/">Sorting</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/algorithm/analysis/">Analysis of Algorithms</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/algorithm/mathematical/">Mathematical Algorithms</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/algorithm/randomized/">Randomized Algorithms</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/tag/recursion">Recursion</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">
+                <a href="http://www.geeksforgeeks.org/category/algorithm/game-theory/">Game Theory</a>
+            </td>
+</tr><tr>
+            <td style="border:1px solid #6AA84F;padding:2px;line-height:1.7;font-size:13px;">							<a href="http://www.geeksforgeeks.org/tag/statistical-algorithms/">Statistical Algorithms</a>            </td>
+
+        </tr>
+
+    </tbody>
+</table></div>
+		</aside><aside id="text-8" class="widget widget_text">			<div class="textwidget"><!-- BuySellAds Zone Code -->
+<div id="bsap_1306934" class="bsap bsap_1306934" data-serve="CVAILK3J">
+<style type="text/css">
+.one{position:relative;}.one .bsa_it_ad{display:block;padding:15px;border:1px solid #e1e1e1;background:#f9f9f9;font-family:helvetica,arial,sans-serif;line-height:100%;position:relative;}.one .bsa_it_ad a{text-decoration:none;}.one .bsa_it_ad a:hover{text-decoration:none;}.one .bsa_it_ad .bsa_it_t{display:block;font-size:12px;font-weight:bold;color:#212121;line-height:125%;padding:0 0 5px 0;}.one .bsa_it_ad .bsa_it_d{display:block;font-size:11px;color:#434343;font-size:12px;line-height:135%;}.one .bsa_it_ad .bsa_it_i{float:left;margin:0 15px 10px 0;}.one .bsa_it_p{display:block;text-align:right;position:absolute;bottom:10px;right:15px;}.one .bsa_it_p a{font-size:10px;color:#666;text-decoration:none;}.one .bsa_it_ad .bsa_it_p a:hover{font-style:italic;}
+div.bsap_1306934{width:100%;display:block;}div.bsap_1306934 a{width:336px;}div.bsap_1306934 a img{padding:0;}div.bsap_1306934 a em{font-style:normal;}div.bsap_1306934 Arraydiv.bsap_1306934 a{line-height:100%;}div.bsap_1306934 a.adhere{width:336px;height:280px;line-height:2240%;}html>body div.bsap_1306934 a.adhere{width:334px;height:278px;}div.bsap_1306934 img.s{height:0;width:0;}div.bsap_1306934{line-height:9px;}div.bsap_1306934 .bsap_adhere a{height:19px !important;width:334px !important;font-size:10px;background:#f1f1f1;border:1px solid #e1e1e1;border-top:none;border-radius: 0 0 2px 2px;line-height:16px;}.bsap_backfillframe{border:0;}</style>
+
+<div class="bsa_it one"><!-- no ad --><span class="bsa_it_p">
+<a href="http://www.buysellads.com/buy/detail/269492/zone/1306934?utm_source=site_269492&amp;utm_medium=website&amp;utm_campaign=imagetext&amp;utm_content=zone_1306934">ads by BSA</a>
+</span>
+</div>
+
+<script type="text/javascript" id="auto_1" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+<!-- End BuySellAds Zone Code --></div>
+		</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><p class="widget-title">Tags</p><div class="tagcloud"><a href="https://www.geeksforgeeks.org/category/advanced-data-structure/" class="tag-link-1762 tag-link-position-1" title="198 topics" style="font-size: 9.1052631578947pt;">Advanced Data Structure</a>
+<a href="https://www.geeksforgeeks.org/tag/amazon/" class="tag-link-1942 tag-link-position-2" title="833 topics" style="font-size: 16.719298245614pt;">Amazon</a>
+<a href="https://www.geeksforgeeks.org/tag/aptitude/" class="tag-link-2159 tag-link-position-3" title="279 topics" style="font-size: 10.947368421053pt;">Aptitude</a>
+<a href="https://www.geeksforgeeks.org/category/quizzes-gq/aptitude-gq/" class="tag-link-2200 tag-link-position-4" title="271 topics" style="font-size: 10.701754385965pt;">Aptitude</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/c-arrays/" class="tag-link-3 tag-link-position-5" title="1,132 topics" style="font-size: 18.315789473684pt;">Arrays</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/bit-magic/" class="tag-link-17 tag-link-position-6" title="315 topics" style="font-size: 11.561403508772pt;">Bit Magic</a>
+<a href="https://www.geeksforgeeks.org/tag/c/" class="tag-link-2138 tag-link-position-7" title="399 topics" style="font-size: 12.789473684211pt;">C</a>
+<a href="https://www.geeksforgeeks.org/category/programming-language/c/" class="tag-link-2064 tag-link-position-8" title="648 topics" style="font-size: 15.368421052632pt;">C</a>
+<a href="https://www.geeksforgeeks.org/category/programming-language/cpp/" class="tag-link-2065 tag-link-position-9" title="863 topics" style="font-size: 16.964912280702pt;">C++</a>
+<a href="https://www.geeksforgeeks.org/category/computer-subject/computer-networks/" class="tag-link-2051 tag-link-position-10" title="187 topics" style="font-size: 8.7368421052632pt;">Computer Networks</a>
+<a href="https://www.geeksforgeeks.org/tag/cpp-library/" class="tag-link-1964 tag-link-position-11" title="169 topics" style="font-size: 8.2456140350877pt;">CPP-Library</a>
+<a href="https://www.geeksforgeeks.org/category/quizzes-gq/computer-science-quizzes-gq/c-gq/" class="tag-link-2206 tag-link-position-12" title="275 topics" style="font-size: 10.824561403509pt;">C Quiz</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/dynamic-programming/" class="tag-link-1746 tag-link-position-13" title="421 topics" style="font-size: 13.157894736842pt;">Dynamic Programming</a>
+<a href="https://www.geeksforgeeks.org/category/interview-experiences/experienced-interview-experiences/" class="tag-link-1795 tag-link-position-14" title="168 topics" style="font-size: 8.2456140350877pt;">Experienced</a>
+<a href="https://www.geeksforgeeks.org/category/guestblogs/" class="tag-link-1710 tag-link-position-15" title="352 topics" style="font-size: 12.175438596491pt;">GBlog</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/geometric/" class="tag-link-1754 tag-link-position-16" title="180 topics" style="font-size: 8.6140350877193pt;">Geometric</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/graph/" class="tag-link-2068 tag-link-position-17" title="238 topics" style="font-size: 10.087719298246pt;">Graph</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/hash/" class="tag-link-1756 tag-link-position-18" title="281 topics" style="font-size: 10.947368421053pt;">Hash</a>
+<a href="https://www.geeksforgeeks.org/category/interview-experiences/internship-interview-experiences/" class="tag-link-1794 tag-link-position-19" title="193 topics" style="font-size: 8.9824561403509pt;">Internship</a>
+<a href="https://www.geeksforgeeks.org/category/interview-experiences/" class="tag-link-1140 tag-link-position-20" title="2,256 topics" style="font-size: 22pt;">Interview Experiences</a>
+<a href="https://www.geeksforgeeks.org/category/quizzes-gq/isro/" class="tag-link-2805 tag-link-position-21" title="632 topics" style="font-size: 15.245614035088pt;">ISRO</a>
+<a href="https://www.geeksforgeeks.org/category/programming-language/java/" class="tag-link-2058 tag-link-position-22" title="1,077 topics" style="font-size: 18.070175438596pt;">Java</a>
+<a href="https://www.geeksforgeeks.org/tag/java-stream/" class="tag-link-2793 tag-link-position-23" title="160 topics" style="font-size: 8pt;">java-stream</a>
+<a href="https://www.geeksforgeeks.org/category/javascript/" class="tag-link-2629 tag-link-position-24" title="256 topics" style="font-size: 10.456140350877pt;">JavaScript</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/linked-list/" class="tag-link-8 tag-link-position-25" title="297 topics" style="font-size: 11.19298245614pt;">Linked List</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/mathematical/" class="tag-link-1753 tag-link-position-26" title="1,333 topics" style="font-size: 19.298245614035pt;">Mathematical</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/matrix/" class="tag-link-1760 tag-link-position-27" title="315 topics" style="font-size: 11.561403508772pt;">Matrix</a>
+<a href="https://www.geeksforgeeks.org/tag/microsoft/" class="tag-link-104 tag-link-position-28" title="381 topics" style="font-size: 12.543859649123pt;">Microsoft</a>
+<a href="https://www.geeksforgeeks.org/tag/number-digits/" class="tag-link-1911 tag-link-position-29" title="172 topics" style="font-size: 8.3684210526316pt;">number-digits</a>
+<a href="https://www.geeksforgeeks.org/tag/php/" class="tag-link-2654 tag-link-position-30" title="387 topics" style="font-size: 12.666666666667pt;">PHP</a>
+<a href="https://www.geeksforgeeks.org/category/program-output/" class="tag-link-5 tag-link-position-31" title="198 topics" style="font-size: 9.1052631578947pt;">Program Output</a>
+<a href="https://www.geeksforgeeks.org/category/puzzles/" class="tag-link-2063 tag-link-position-32" title="185 topics" style="font-size: 8.7368421052632pt;">Puzzles</a>
+<a href="https://www.geeksforgeeks.org/category/programming-language/python/" class="tag-link-1789 tag-link-position-33" title="878 topics" style="font-size: 16.964912280702pt;">Python</a>
+<a href="https://www.geeksforgeeks.org/tag/qa-placement-quizzes/" class="tag-link-2187 tag-link-position-34" title="284 topics" style="font-size: 10.947368421053pt;">QA - Placement Quizzes</a>
+<a href="https://www.geeksforgeeks.org/category/quizzes-gq/qa-placement-quizzes-gq/" class="tag-link-2204 tag-link-position-35" title="284 topics" style="font-size: 10.947368421053pt;">QA - Placement Quizzes</a>
+<a href="https://www.geeksforgeeks.org/category/school-programming/" class="tag-link-2078 tag-link-position-36" title="538 topics" style="font-size: 14.385964912281pt;">School Programming</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/searching/" class="tag-link-1751 tag-link-position-37" title="237 topics" style="font-size: 10.087719298246pt;">Searching</a>
+<a href="https://www.geeksforgeeks.org/tag/series/" class="tag-link-1919 tag-link-position-38" title="242 topics" style="font-size: 10.210526315789pt;">series</a>
+<a href="https://www.geeksforgeeks.org/category/algorithm/sorting/" class="tag-link-1752 tag-link-position-39" title="401 topics" style="font-size: 12.789473684211pt;">Sorting</a>
+<a href="https://www.geeksforgeeks.org/tag/stl/" class="tag-link-1797 tag-link-position-40" title="401 topics" style="font-size: 12.789473684211pt;">STL</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/c-strings/" class="tag-link-7 tag-link-position-41" title="812 topics" style="font-size: 16.59649122807pt;">Strings</a>
+<a href="https://www.geeksforgeeks.org/category/technical-scripter/" class="tag-link-1788 tag-link-position-42" title="371 topics" style="font-size: 12.421052631579pt;">Technical Scripter</a>
+<a href="https://www.geeksforgeeks.org/category/data-structures/tree/" class="tag-link-19 tag-link-position-43" title="457 topics" style="font-size: 13.526315789474pt;">Tree</a>
+<a href="https://www.geeksforgeeks.org/category/quizzes-gq/ugc-net/" class="tag-link-2806 tag-link-position-44" title="686 topics" style="font-size: 15.736842105263pt;">UGC-NET</a>
+<a href="https://www.geeksforgeeks.org/category/web-technologies/" class="tag-link-2628 tag-link-position-45" title="528 topics" style="font-size: 14.263157894737pt;">Web Technologies</a></div>
+</aside><aside id="text-9" class="widget widget_text">			<div class="textwidget"><!-- BuySellAds Zone Code -->
+<div id="bsap_1304848" class="bsap bsap_1304848" data-serve="CVSIE53W">
+<style type="text/css">
+div.bsap_1304848{width:100%;display:block;}div.bsap_1304848 a{width:300px;}div.bsap_1304848 a img{padding:0;}div.bsap_1304848 a em{font-style:normal;}div.bsap_1304848 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;float:left;}
+div.bsap_1304848 img{border:0;clear:right;}
+div.bsap_1304848 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}
+div.bsap_1304848 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}
+div.bsap_1304848 iframe{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;float:left;}div.bsap_1304848 a{line-height:100%;}div.bsap_1304848 a.adhere{width:300px;height:250px;line-height:2000%;}html>body div.bsap_1304848 a.adhere{width:298px;height:248px;}div.bsap_1304848 img.s{height:0;width:0;}div.bsap_1304848{line-height:9px;}div.bsap_1304848 .bsap_adhere a{height:19px !important;width:298px !important;font-size:10px;background:#f1f1f1;border:1px solid #e1e1e1;border-top:none;border-radius: 0 0 2px 2px;line-height:16px;}.bsap_backfillframe{border:0;}
+</style>
+<!-- no ad -->
+
+<div class="bsap_adhere">
+
+<a href="http://www.buysellads.com/buy/detail/269492/zone/1304848?utm_source=site_269492&amp;utm_medium=website&amp;utm_campaign=imagetext&amp;utm_content=zone_1304848" class="">Advertise Here</a>
+
+</div>
+
+
+<script type="text/javascript" id="auto_2" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+<!-- End BuySellAds Zone Code --></div>
+		</aside><aside id="text-10" class="widget widget_text">			<div class="textwidget"><a href="http://www.geeksforgeeks.org/recent-comments/" style="margin-right: 0px !important;">
+  <center>
+    <input type="button" value="Recent Comments" style="background-color: #4cb96b; color:white; width:100%; font-size:large; cursor:pointer;font-weight:bold;">
+  </center>
+</a></div>
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+  <footer>
+    <div id="container-g4g-footer">
+
+        <div id="footer">
+            <div class="logo">
+                <ul class="gfg-logo-ul">
+                    <li>
+                      <a href="https://www.geeksforgeeks.org/">
+                        <img src="./Linear Search vs Binary Search - GeeksforGeeks_files/GeeksforGeeksLogoFooterSmall.png" alt="GeeksforGeeks">
+                      </a>
+                    </li>
+                </ul>
+                <ul class="social-ul">
+                    <li>710-B, Advant Navis Business Park,</li>
+                    <li>Sector-142, Noida, Uttar Pradesh - 201305</li>
+        <li>feedback@geeksforgeeks.org</li>
+                </ul>
+                
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><b>COMPANY</b></li>
+                    <li><a href="https://www.geeksforgeeks.org/about/">About Us</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/careers/">Careers</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/about/contact-us/">Contact Us</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-column">
+                <ul>
+                    <li><b>LEARN</b></li>
+                    <li><a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algorithms</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/data-structures/">Data Structures</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/category/program-output/">Languages</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/">CS Subjects</a></li>
+                    <li><a href="https://www.youtube.com/geeksforgeeksvideos/">Video Tutorials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <ul>
+                    <li><b>PRACTICE</b></li>
+                    <li><a href="https://practice.geeksforgeeks.org/company-tags/">Company-wise</a></li>
+                    <li><a href="https://practice.geeksforgeeks.org/topic-tags/">Topic-wise</a></li>
+                    <li><a href="https://practice.geeksforgeeks.org/contests/">Contests</a></li>
+                    <li><a href="https://practice.geeksforgeeks.org/subjective-page.php">Subjective Questions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <ul>
+                    <li><b>CONTRIBUTE</b>
+                    </li><li><a href="https://www.geeksforgeeks.org/contribute/">Write an Article</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/write-interview-experience/">Write Interview Experience</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/internship/">Internships</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/how-to-contribute-videos-to-geeksforgeeks/">Videos</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom-div footer-bottom-social">
+    <ul class="social-ul" style="padding-left: 0px;">
+                    <li>
+                        <a class="social-link" href="https://www.facebook.com/GeeksforGeeks-316764689022/timeline/"><div class="social-img-div"></div></a>
+                        <a class="social-link" href="https://in.linkedin.com/company/geeksforgeeks"><div class="social-img-div"></div></a>
+                        <a class="social-link" href="https://play.google.com/store/apps/details?id=free.programming.programming&amp;hl=en"><div class="social-img-div"></div></a>
+                        <a class="social-link" href="https://twitter.com/geeksforgeeks"><div class="social-img-div"></div></a>
+                        <a class="social-link" href="https://www.youtube.com/geeksforgeeksvideos"><div class="social-img-div"></div></a>
+                    </li>
+                </ul>
+  </div>
+  <div class="footer-bottom-div">
+            @geeksforgeeks, <a style="color:#fff !important" href="https://creativecommons.org/licenses/by-sa/4.0/">Some rights reserved</a>
+        </div>
+
+    </div>
+</footer>
+<!-- #page -->
+
+<script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/wp-embed.min.js.download"></script>
+
+<style>
+.eventLink{
+border: 1px solid #868686;
+background-color: #e0e0e0;
+padding: 10px;
+box-shadow: none;
+display: block;
+text-align: center;
+color: #555 !important;
+font-size: 14px;
+font-weight: bold;
+}
+</style>
+
+<script type="text/javascript">
+// below changes to be added in gfg.js in future.
+// load comment button click when page scroll to it and positioned ad in mobile view.
+flag=0;jQuery(window).scroll(function(){if(jQuery('#comment').length !=0 ){var hT=jQuery('#comment').offset().top,hH=jQuery('#comment').outerHeight(),wH=jQuery(window).height(),wS=jQuery(this).scrollTop();if(wS>(hT+hH-wH-70)&&!flag){jQuery('#comment').click();flag=1}}});
+/*var temp_width=jQuery(window).width();if(temp_width<468){if(jQuery('article').length>1){jQuery(jQuery('.responsiveAd')).insertAfter('article:eq(2)');jQuery('.rectangleAd').hide()}
+else if(jQuery('#practiceLinkDiv').length>0){jQuery(jQuery('.responsiveAd')).insertAfter('#practiceLinkDiv');jQuery('.rectangleAd').css('width','')}else{jQuery('.responsiveAd').hide();jQuery('.rectangleAd').css('width','')}}
+*/
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12148232-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/monetization.js.download"></script>
+<script>
+(function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+        _bsa.init('fancybar', 'C6ADVKE', 'placement:geeksforgeeks');
+    }
+})();
+</script>
+
+
+
+<!-- Dynamic page generated in 0.246 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2018-06-02 13:52:43 -->
+
+<!-- Compression = gzip --><iframe id="google_osd_static_frame_3004801522747" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource(5).html"></iframe><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 374px; display: none; top: 41px; position: absolute; left: 329px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><script type="text/javascript" src="./Linear Search vs Binary Search - GeeksforGeeks_files/saved_resource(1)"></script></body></html>
